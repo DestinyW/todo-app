@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+:root {
+    --primary-bg-color: hsl(235, 21%, 11%);
+    --secondary-bg-color: hsl(235, 24%, 19%);
+    --list-item-font-color: hsl(234, 39%, 85%);
+    --primary-font-color: hsl(233, 14%, 35%);
+    --secondary-font-color: hsl(234, 11%, 52%);
+    --border-color: hsl(233, 14%, 35%);
+    --button-hover-color: hsl(236, 33%, 92%);
+}
+
+:root.light {
+    --primary-bg-color: hsl(236, 33%, 92%);
+    --secondary-bg-color: hsl(0, 0%, 98%);
+    --list-item-font-color: hsl(235, 19%, 35%);
+    --primary-font-color: hsl(236, 9%, 61%);
+    --secondary-font-color: hsl(234, 11%, 52%);
+    --border-color: hsl(233, 11%, 84%);
+    --button-hover-color: hsl(235, 19%, 35%);
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    box-sizing: border-box;
+
+    @include breakpoint-up(medium) {
+        font-size: 18px;
+    }
+    @include breakpoint-up(large) {
+        font-size: 20px;
+    }
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1rem;
+    color: var(--primary-font-color);
+}
+
+h1 {
+    font-size: 1.8rem;
+}
+
+.container {
+    min-height: 100%;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: var(--primary-bg-color);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 100% 250px;
+    background-image: url('../../images/bg-mobile-dark.jpg');
+
+    &.light {
+        background-image: url('../../images/bg-mobile-light.jpg');
+    }
+
+    @include breakpoint-up(medium) {
+        padding-left: 10%;
+        padding-right: 10%;
+        background-image: url('../../images/bg-desktop-dark.jpg');
+
+        &.light {
+            background-image: url('../../images/bg-desktop-light.jpg');
+        }
+    }
+
+    @include breakpoint-up(large) {
+        padding-left: 15%;
+        padding-right: 15%;
+        background-size: 100% 300px;
+    }
+}
+
+ul {
+    list-style-type: none;
+}
+
+button,
+input[type='checkbox']:not(input:disabled) + .custom__checkbox {
+    cursor: pointer;
+}
+
+button,
+input[type='text'] {
+    border: none;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    background: transparent;
+    outline: none;
+}
+
+// flexbox
+.flex {
+    display: flex;
+
+    &-jc-sb {
+        justify-content: space-between;
+    }
+
+    &-jc-c {
+        justify-content: center;
+    }
+
+    &-ai-c {
+        align-items: center;
+    }
+}

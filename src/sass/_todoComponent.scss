@@ -1,0 +1,142 @@
+// START custom checkbox
+label {
+    display: grid;
+    grid-template-columns: min-content auto;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+    height: 100%;
+    padding: 1.2em 1em;
+    background: var(--secondary-bg-color);
+
+    &#new-todo-label {
+        border-radius: 0.3em;
+    }
+
+    &#list-item-label {
+        grid-template-columns: min-content auto min-content;
+        border-bottom: 1px solid var(--border-color);
+    }
+}
+
+.checkbox__input {
+    .custom__checkbox {
+        display: block;
+        width: 25px;
+        height: 25px;
+        border: 1px solid var(--border-color);
+        border-radius: 50%;
+    }
+
+    input {
+        display: none;
+
+        &:checked ~ .custom__checkbox {
+            border: none;
+            background: url('../../images/icon-check.svg') no-repeat,
+                linear-gradient(
+                    to right,
+                    hsl(192, 100%, 67%),
+                    hsl(280, 87%, 65%)
+                );
+            background-size: 65%, 100%;
+            background-position: center;
+        }
+    }
+}
+// END custom checkbox
+
+// START todo container
+.todo-container p:last-of-type {
+    padding: 3em 0;
+    text-align: center;
+}
+
+#new-todo-form {
+    input[type='text'] {
+        &::placeholder {
+            color: inherit;
+        }
+
+        &:focus {
+            color: var(--secondary-font-color);
+        }
+    }
+}
+
+.todo-list-wrapper {
+    margin-top: 1em;
+    border-radius: 0.3em;
+    overflow: hidden;
+    background: var(--secondary-bg-color);
+
+    ul#list {
+        .draggable label {
+            cursor: move;
+        }
+
+        span[data-list-item-text] {
+            color: var(--list-item-font-color);
+
+            &.is-complete {
+                color: var(--primary-font-color);
+                text-decoration: line-through;
+            }
+        }
+
+        button[data-delete-btn] {
+            width: 18px;
+            height: 18px;
+            background: url('../../images/icon-cross.svg') no-repeat;
+            background-size: 100%;
+            background-position: center;
+        }
+    }
+
+    .todo-list-information {
+        padding: 1.2em 1em;
+
+        > :last-child:hover {
+            color: var(--button-hover-color);
+        }
+    }
+}
+
+.todo-filters {
+    button {
+        color: var(--secondary-font-color);
+        margin-right: 1em;
+
+        &:hover {
+            color: var(--button-hover-color);
+        }
+        &.active {
+            color: hsl(220, 98%, 61%);
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    @include breakpoint-down(small) {
+        &.hide-on-mobile {
+            display: none;
+        }
+        background: var(--secondary-bg-color);
+        margin-top: 1em;
+        border-radius: 0.3em;
+        padding: 1.2em 1em;
+
+        button {
+            margin-right: 2em;
+            font-size: 1.125rem;
+        }
+    }
+    @include breakpoint-up(large) {
+        &.hide-on-desktop {
+            display: none;
+        }
+    }
+}
+// END todo container

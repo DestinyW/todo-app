@@ -1,0 +1,23 @@
+header {
+    padding: 4em 0 3em;
+
+    .header-title {
+        text-transform: uppercase;
+        color: #ffffff;
+        letter-spacing: 0.3em;
+    }
+
+    #toggle-theme-btn {
+        width: 1.5em;
+        height: 1.5em;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        background-image: url('../../images/icon-sun.svg');
+        
+        &.light {
+            background-image: url('../../images/icon-moon.svg');
+        }
+        
+    }
+}

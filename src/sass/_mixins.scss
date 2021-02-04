@@ -1,0 +1,24 @@
+$screen-md-max: 991px;
+$screen-md-min: 768px;
+$screen-lg-min: 992px;
+
+$breakpoints-up: (
+    'medium': $screen-md-min,
+    'large': $screen-lg-min,
+);
+
+$breakpoints-down: (
+    'small': $screen-md-max,
+);
+
+@mixin breakpoint-up($size) {
+    @media only screen and (min-width: map-get($breakpoints-up, $size)) {
+        @content;
+    }
+}
+
+@mixin breakpoint-down($size) {
+    @media only screen and (max-width: map-get($breakpoints-down, $size)) {
+        @content;
+    }
+}

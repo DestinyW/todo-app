@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor | Todo app</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="./images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="./src/css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js" integrity="sha512-5x7t0fTAVo9dpfbp3WtE2N6bfipUwk7siViWncdDoSz2KwOqVC1N9fDxEOzk0vTThOua/mglfF8NO7uVDLRC8Q==" crossorigin="anonymous"></script>
+    <script defer src="./src/js/themeToggle.js"></script>
+    <script defer src="./src/js/script.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <header class="flex flex-jc-sb flex-ai-c">
+            <h1 class="header-title">Todo</h1>
+            <button id="toggle-theme-btn"></button>
+        </header>
+
+        <section class="todo-container">
+            <form id="new-todo-form">
+                <label for="todo-input" id="new-todo-label">
+                    <span class="checkbox__input">
+                        <input type="checkbox" name="checkbox-disabled" disabled>
+                        <span class="custom__checkbox"></span>
+                    </span>
+                    <input type="text" name="text" id="todo-input" placeholder="Create a new todo...">
+                </label>
+            </form>
+
+            <div class="todo-list-wrapper">
+                <ul id="list"></ul>
+                <div class="todo-list-information flex flex-jc-sb flex-ai-c">
+                    <span data-total-todos>0 items left</span>
+                    <div class="todo-filters hide-on-mobile">
+                        <button data-filter-all class="active">All</button>
+                        <button data-filter-active>Active</button>
+                        <button data-filter-completed>Completed</button>
+                    </div>
+                    <button data-clear-btn>Clear Completed</button>
+                </div>
+            </div>
+
+            <div class="todo-filters flex flex-jc-c flex-ai-c hide-on-desktop">
+                <button data-filter-all class="active">All</button>
+                <button data-filter-active>Active</button>
+                <button data-filter-completed>Completed</button>
+            </div>
+
+            <p>Drag and drop to reorder list</p>
+
+            <template id="list-item-template">
+                <li class="list-item draggable">
+                    <label id="list-item-label">
+                        <span class="checkbox__input">
+                            <input data-checkbox type="checkbox" name="checkbox">
+                            <span class="custom__checkbox"></span>
+                        </span>
+                        <span data-list-item-text></span>
+                        <button data-delete-btn></button>
+                    </label>
+                </li>
+            </template>
+        </section>
+    </div>
+</body>
+</html>

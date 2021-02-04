@@ -1,0 +1,313 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+:root {
+  --primary-bg-color: hsl(235, 21%, 11%);
+  --secondary-bg-color: hsl(235, 24%, 19%);
+  --list-item-font-color: hsl(234, 39%, 85%);
+  --primary-font-color: hsl(233, 14%, 35%);
+  --secondary-font-color: hsl(234, 11%, 52%);
+  --border-color: hsl(233, 14%, 35%);
+  --button-hover-color: hsl(236, 33%, 92%);
+}
+
+:root.light {
+  --primary-bg-color: hsl(236, 33%, 92%);
+  --secondary-bg-color: hsl(0, 0%, 98%);
+  --list-item-font-color: hsl(235, 19%, 35%);
+  --primary-font-color: hsl(236, 9%, 61%);
+  --secondary-font-color: hsl(234, 11%, 52%);
+  --border-color: hsl(233, 11%, 84%);
+  --button-hover-color: hsl(235, 19%, 35%);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--primary-font-color);
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+.container {
+  min-height: 100%;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: var(--primary-bg-color);
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 100% 250px;
+  background-image: url("../../images/bg-mobile-dark.jpg");
+}
+
+.container.light {
+  background-image: url("../../images/bg-mobile-light.jpg");
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    padding-left: 10%;
+    padding-right: 10%;
+    background-image: url("../../images/bg-desktop-dark.jpg");
+  }
+  .container.light {
+    background-image: url("../../images/bg-desktop-light.jpg");
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .container {
+    padding-left: 15%;
+    padding-right: 15%;
+    background-size: 100% 300px;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+button,
+input[type='checkbox']:not(input:disabled) + .custom__checkbox {
+  cursor: pointer;
+}
+
+button,
+input[type='text'] {
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+  background: transparent;
+  outline: none;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-jc-sb {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.flex-jc-c {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.flex-ai-c {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header {
+  padding: 4em 0 3em;
+}
+
+header .header-title {
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 0.3em;
+}
+
+header #toggle-theme-btn {
+  width: 1.5em;
+  height: 1.5em;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  background-image: url("../../images/icon-sun.svg");
+}
+
+header #toggle-theme-btn.light {
+  background-image: url("../../images/icon-moon.svg");
+}
+
+label {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: min-content auto;
+      grid-template-columns: -webkit-min-content auto;
+      grid-template-columns: min-content auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1em;
+  width: 100%;
+  height: 100%;
+  padding: 1.2em 1em;
+  background: var(--secondary-bg-color);
+}
+
+label#new-todo-label {
+  border-radius: 0.3em;
+}
+
+label#list-item-label {
+  -ms-grid-columns: min-content auto min-content;
+      grid-template-columns: -webkit-min-content auto -webkit-min-content;
+      grid-template-columns: min-content auto min-content;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.checkbox__input .custom__checkbox {
+  display: block;
+  width: 25px;
+  height: 25px;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+}
+
+.checkbox__input input {
+  display: none;
+}
+
+.checkbox__input input:checked ~ .custom__checkbox {
+  border: none;
+  background: url("../../images/icon-check.svg") no-repeat, -webkit-gradient(linear, left top, right top, from(#57ddff), to(#c058f3));
+  background: url("../../images/icon-check.svg") no-repeat, linear-gradient(to right, #57ddff, #c058f3);
+  background-size: 65%, 100%;
+  background-position: center;
+}
+
+.todo-container p:last-of-type {
+  padding: 3em 0;
+  text-align: center;
+}
+
+#new-todo-form input[type='text']::-webkit-input-placeholder {
+  color: inherit;
+}
+
+#new-todo-form input[type='text']:-ms-input-placeholder {
+  color: inherit;
+}
+
+#new-todo-form input[type='text']::-ms-input-placeholder {
+  color: inherit;
+}
+
+#new-todo-form input[type='text']::placeholder {
+  color: inherit;
+}
+
+#new-todo-form input[type='text']:focus {
+  color: var(--secondary-font-color);
+}
+
+.todo-list-wrapper {
+  margin-top: 1em;
+  border-radius: 0.3em;
+  overflow: hidden;
+  background: var(--secondary-bg-color);
+}
+
+.todo-list-wrapper ul#list .draggable label {
+  cursor: move;
+}
+
+.todo-list-wrapper ul#list span[data-list-item-text] {
+  color: var(--list-item-font-color);
+}
+
+.todo-list-wrapper ul#list span[data-list-item-text].is-complete {
+  color: var(--primary-font-color);
+  text-decoration: line-through;
+}
+
+.todo-list-wrapper ul#list button[data-delete-btn] {
+  width: 18px;
+  height: 18px;
+  background: url("../../images/icon-cross.svg") no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+
+.todo-list-wrapper .todo-list-information {
+  padding: 1.2em 1em;
+}
+
+.todo-list-wrapper .todo-list-information > :last-child:hover {
+  color: var(--button-hover-color);
+}
+
+.todo-filters button {
+  color: var(--secondary-font-color);
+  margin-right: 1em;
+}
+
+.todo-filters button:hover {
+  color: var(--button-hover-color);
+}
+
+.todo-filters button.active {
+  color: #3a7bfd;
+}
+
+.todo-filters button:last-child {
+  margin-right: 0;
+}
+
+@media only screen and (max-width: 991px) {
+  .todo-filters {
+    background: var(--secondary-bg-color);
+    margin-top: 1em;
+    border-radius: 0.3em;
+    padding: 1.2em 1em;
+  }
+  .todo-filters.hide-on-mobile {
+    display: none;
+  }
+  .todo-filters button {
+    margin-right: 2em;
+    font-size: 1.125rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .todo-filters.hide-on-desktop {
+    display: none;
+  }
+}
+/*# sourceMappingURL=style.css.map */
